@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import Form from '../components/Form/Form';
+import Form from 'src/components/Form/Form';
 
-import schemas from '../schemas';
+import schemas from 'src/schemas';
 
-import {db} from '../firebase';
+import {db} from 'src/firebase';
 
 console.log(schemas);
 

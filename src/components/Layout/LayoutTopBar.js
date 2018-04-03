@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './layout-topbar.scss';
-import Navigation from './Navigation';
-import CONFIG from '../../config/config.json';
 
-import {db} from '../firebase';
+import CONFIG from 'config/config.json';
+import {db} from 'src/firebase';
 
-import * as routes from '../constants/routes';
+import * as routes from 'src/constants/routes';
 
 const matchRoute = (string,route) => route.indexOf(string.toLowerCase()) > -1;
 
@@ -22,7 +21,7 @@ export default class LayoutTopbar extends Component {
 
 				<div className="topbar">
 					<div className="logo" style={{backgroundImage: `url(${CONFIG.logo_url})`}} />
-					<ul class="nav">
+					<ul className="nav">
 	          {auth ? (<li className={`${matchRoute('home',location.pathname) ? 'active' : ''}`}><Link to={routes.HOME}>Home</Link></li>) : null}
 						{auth ? collections.map(key => {
 							return (

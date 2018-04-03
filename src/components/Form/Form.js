@@ -19,13 +19,13 @@ import FieldGroup from './Fields/Group';
 // };
 
 
-const renderField = ({fields,field, repeaterName = false}) => {
+const renderField = ({fields,field, repeaterName = false, index}) => {
 	let fieldName = repeaterName ? `${repeaterName}.${field.name}`: field.name;
 	
 	switch(field.type){
 		case 'text':
 			return (
-		    <div>
+		    <div key={index}>
 		      <label>{field.label}</label>
 		      <Input type="text" name={fieldName} />
 		    </div>
@@ -34,7 +34,7 @@ const renderField = ({fields,field, repeaterName = false}) => {
 
 		case 'password':
 			return (
-		    <div>
+		    <div key={index}>
 		      <label>{field.label}</label>
 		      <Input type="password" name={fieldName} />
 		    </div>
@@ -43,7 +43,7 @@ const renderField = ({fields,field, repeaterName = false}) => {
 
 		case 'tags':
 			return (
-		    <div>
+		    <div key={index}>
 		      <label>{field.label}</label>
 		      <Tags name={fieldName} />
 		    </div>
@@ -52,7 +52,7 @@ const renderField = ({fields,field, repeaterName = false}) => {
 
 		case 'reference':
 			return (
-		    <div>
+		    <div key={index}>
 		      <label>{field.label}</label>
 		      <Reference name={fieldName} field={field}/>
 		    </div>
@@ -61,7 +61,7 @@ const renderField = ({fields,field, repeaterName = false}) => {
 
 		case 'select':
 			return (
-		    <div>
+		    <div key={index}>
 		      <label>{field.label}</label>
 		      <Select name={fieldName}>
 		        <option value="" disabled>Select...</option>
@@ -77,13 +77,13 @@ const renderField = ({fields,field, repeaterName = false}) => {
 				initialField[f.name] = '';
 			});
 			return (
-				<div>
+				<div key={index}>
 					<p>{field.label}</p>
 				  <a onClick={() => fields.push(`${fieldName}s`, initialField)}>Add Item</a>
 
 					{fields.map(`${fieldName}s.*`, (repeaterName, repeaterIndex) => (
 		      	<div key={repeaterName} key={repeaterIndex}>
-							{field.fields.map((field, index) => renderField({fields,field, repeaterName}))}
+							{field.fields.map((field, index) => renderField({fields, field, repeaterName, index}))}
 							<a onClick={() => fields.remove(repeaterName)}>Delete</a>
 						{/*}
 		        <label htmlFor={repeaterName}>Team name #{repeaterIndex + 1}</label>

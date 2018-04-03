@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './table-list.scss';
 
-import TableListItem from '../components/TableListItem';
+import TableListItem from './TableListItem';
 
 export default class TableList extends Component {
 	render() {

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import schemas from '../schemas';
+import schemas from 'src/schemas';
+import {db} from 'src/firebase';
 
-import {db} from '../firebase';
-
-import TableList from '../components/TableList';
+import TableList from 'src/components/TableList/TableList';
 
 
 function capitalizeFirstLetter(string) {

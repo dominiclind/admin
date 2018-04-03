@@ -8,7 +8,7 @@
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
     "start-message": "babel-node tools/startMessage.js",
-    "prestart": "npm run start-message",
+    "predev": "npm run start-message",
     "dev": "concurrently -k -r -s first \"npm run open:src\"",
     "start": "serve dist --single",
     "open:src": "babel-node tools/srcServer.js",

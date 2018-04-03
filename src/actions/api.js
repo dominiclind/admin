@@ -1,7 +1,7 @@
-import { auth, db } from '../firebase'
+import { auth, db } from 'src/firebase'
 import { browserHistory } from 'react-router';
 import { push } from 'react-router-redux';
-import * as routes from '../constants/routes';
+import * as routes from 'src/constants/routes';
 
 export function fetchCollections () {
   return (dispatch, getState) => {

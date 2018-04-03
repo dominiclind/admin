@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import {boot} from '../actions/session';
+import {boot} from 'src/actions/session';
 
 class LandingPage extends Component {
 	constructor(props) {

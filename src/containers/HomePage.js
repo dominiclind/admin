@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import {db} from '../firebase';
+import {db} from 'src/firebase';
 
-import LayoutSidebar from '../components/LayoutSidebar';
-import TableList from '../components/TableList';
-import TableListItem from '../components/TableListItem';
+import TableList from 'src/components/TableList/TableList';
+import TableListItem from 'src/components/TableList/TableListItem';
 
 class HomePage extends Component {
 	constructor(props) {

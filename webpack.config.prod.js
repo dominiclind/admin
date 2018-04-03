@@ -13,6 +13,10 @@ const GLOBALS = {
 
 export default {
   resolve: {
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+      config: path.resolve(__dirname, 'config'),
+    },
     extensions: ['*', '.js', '.jsx', '.json']
   },
   devtool: 'source-map', // more info:https://webpack.js.org/guides/production/#source-mapping and https://webpack.js.org/configuration/devtool/

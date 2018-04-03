@@ -12,7 +12,7 @@ import {
   arrayMove,
 } from 'react-sortable-hoc';
 
-import {db} from '../../../firebase';
+import {db} from 'src/firebase';
 
 const DragHandle = SortableHandle(() => <span className="reference-drag-handle">::</span>); // This can be any component you want
 

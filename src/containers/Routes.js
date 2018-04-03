@@ -8,7 +8,7 @@ import {
   withRouter
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as routes from '../constants/routes';
+import * as routes from 'src/constants/routes';
 
 import LandingPage from './LandingPage';
 import SignInPage from './SignInPage';
@@ -17,11 +17,10 @@ import HomePage from './HomePage';
 import CollectionPage from './CollectionPage';
 import CollectionSinglePage from './CollectionSinglePage';
 import NewPage from './NewPage';
-import Navigation from '../components/Navigation';
-import LayoutTopBar from '../components/LayoutTopBar';
+import LayoutTopBar from '../components/Layout/LayoutTopBar';
 
-import {auth} from '../firebase';
-import {boot, logout} from '../actions/session';
+import {auth} from 'src/firebase';
+import {boot, logout} from 'src/actions/session';
 
 class Routes extends React.Component {
   componentDidMount(){

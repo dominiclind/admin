@@ -24,7 +24,7 @@ export default class TableListItem extends Component {
 		return (
 			<div className="table-list__item">
 				<Link className="content" to={link}>
-					{ui.map(prop => <p className="content-item">{renderValue(item[prop])}</p>)}
+					{ui.map((prop, index) => <p key={index} className="content-item">{renderValue(item[prop])}</p>)}
 				</Link>
 			</div>
 		);
