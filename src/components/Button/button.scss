@@ -1,0 +1,26 @@
+@import 'src/styles/vars.scss';
+
+.button {
+	background: $primary;
+	color:white;
+	appearance:none;
+	border:none;
+	font-size:1em;
+	padding:.75em 1.4em;
+	border-radius:9999px;
+	box-shadow:0 1px 1px -1px darken($primary, 25%), 0 1px 10px 0px rgba(darken($primary,5%), .5);
+	
+	transition: all 100ms ease;
+
+	outline:none;
+	cursor:pointer;
+
+	&:hover{
+		background: darken($primary, 10%);
+	}
+	&:active{
+		// background: lighten($primary, 2%);
+		color: darken(white, 25%);
+		box-shadow:none;
+	}
+}

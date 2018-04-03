@@ -10,15 +10,6 @@ import Tags from './Fields/Tags';
 import Reference from './Fields/Reference';
 import FieldGroup from './Fields/Group';
 
-// const validations = {
-//   username: { required: true },
-//   email: { required: true, email: true },
-//   gender: { required: true },
-//   colors: { required: true, max: 2 },
-//   language: { required: true },
-// };
-
-
 const renderField = ({fields,field, repeaterName = false, index}) => {
 	let fieldName = repeaterName ? `${repeaterName}.${field.name}`: field.name;
 	

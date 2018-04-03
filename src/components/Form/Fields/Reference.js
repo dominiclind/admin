@@ -12,28 +12,46 @@ import {
   arrayMove,
 } from 'react-sortable-hoc';
 
+import schemas from 'src/schemas';
 import {db} from 'src/firebase';
+
+const showData = (id, data, ui) => {
+  const current = data[id];
+  const view = {};
+
+  // ui.map(field => view[field] = current[field]);
+
+  return current;
+}
 
 const DragHandle = SortableHandle(() => <span className="reference-drag-handle">::</span>); // This can be any component you want
 
-const SortableItem = SortableElement(({index, onRemove, value}) => {
+const SortableItem = SortableElement(({index, onRemove, item, ui}) => {
   return (
     <div className="reference-list-item">
       <DragHandle />
-      {value}
+
+      <div className="list-header">
+        {ui.map(prop => <p className="header-item">{prop}</p>)}
+      </div>
+      <div className="list-content">
+        {ui.map(prop => <p className="header-item">{item[prop]}</p>)}
+      </div>
+
       <button onClick={onRemove}>Remove{index}</button>
     </div>
   );
 });
 
-const SortableList = SortableContainer(({items, onRemove}) => {
+const SortableList = SortableContainer(({items, onRemove, dbData, ui}) => {
   return (
     <div className="reference-list">
       {items.map((value, index) => (
         <SortableItem
           key={`item-${index}`}
           index={index}
-          value={value}
+          item={showData(value,dbData)}
+          ui={ui}
           onRemove={() => onRemove(index)}
        />
       ))}
@@ -46,6 +64,8 @@ class Reference extends React.Component {
     super(props);
   
     this.state = {
+      loaded: false,
+      dbData: [],
       items: [],
       removeSelected: true,
       disabled: false,
@@ -54,6 +74,10 @@ class Reference extends React.Component {
       value: [],
       rtl: false,
     };
+  }
+
+  _getRefData(){
+
   }
   handleSelectChange (value) {
     const { input, meta, ...props} = this.props;
@@ -87,6 +111,9 @@ class Reference extends React.Component {
     }
     return db.get(`/${referenceModel}`).then(res => {
       const data = res.val();
+      
+
+      this.setState({dbData: data});
 
       const dropdownData = Object.keys(data).map(key => {
         return {
@@ -104,14 +131,26 @@ class Reference extends React.Component {
       console.log(error);
     })
   }
+  componentDidMount(){
+    const { field, input } = this.props;
+    const { referenceModel, referenceSearchLabel } = field;
 
+    if(input.value){
+      db.get(`/${referenceModel}`).then(res => {
+        const data = res.val();
+        this.setState({dbData: data, loaded: true});
+      })
+    } else {
+      this.setState({loaded: true});
+    }
+  }
   render() {
     const { input, meta, field, ...props} = this.props;
     const { referenceModel, referenceSearchLabel } = field;
 
     const items = input.value || [];
 
-    return (
+    return !this.state.loaded ? <p>loading</p> : (
       <div>
         <Async
           single
@@ -122,6 +161,8 @@ class Reference extends React.Component {
         <SortableList
           onRemove={index => this.remove(index)}
           items={items}
+          ui={schemas[referenceModel].ui}
+          dbData={this.state.dbData}
           onSortEnd={(state) => this.onSortEnd(state)}
           useDragHandle={true}
         />
