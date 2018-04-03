@@ -1,0 +1,44 @@
+.layout-sidebar{
+	display:flex;
+	height:calc(100vh - 51px);
+	.sidebar{
+
+	}
+}
+
+.sidebar{
+	background: black;
+	padding:1em;
+
+	.logo{
+		color:white;
+		background:blue;
+		width:180px;
+		height:80px;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		margin-bottom:1em;
+	}
+
+	.collections{
+		margin:0;
+		padding:0;
+		h5{
+			color:grey;
+			margin-bottom: 1em;
+		}
+		ul{
+			list-style:none;
+			margin:0;
+			padding:0;
+
+			li{
+				color: white;
+				text-transform:capitalize;
+				margin-bottom:.5em;
+			}
+		}
+	}
+}
+

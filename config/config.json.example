@@ -1,0 +1,11 @@
+{
+	"logo_url" : URL_TO_LOGO_IMAGE,
+	"firebase": {
+		"dev": {
+			...FIREBASE CONFIG OBJECT HERE
+		},
+		"production": {
+			...FIREBASE CONFIG OBJECT HERE
+		}
+	}
+}
