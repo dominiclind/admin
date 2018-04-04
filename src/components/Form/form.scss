@@ -10,3 +10,51 @@
 .field-repeater{
 	border:2px solid black;
 }
+
+.reference-field{
+	background: rgba(0,0,0,.15);
+	padding:.5em;
+
+	.Select{
+		margin-bottom:1em;
+	}
+}
+.reference-list-item{
+	background: white;
+	position:relative;
+	margin-bottom:1em;
+	
+
+	.reference-drag-handle{
+		width: 30px;
+    background: rgba(0,0,0,.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0em;
+	}
+	.content{
+		margin-left:30px;
+	}
+
+	.list-header, .list-content{
+		flex-direction:row;
+		display: flex;
+	}
+	.list-header .col, .list-content .col{
+		flex:1;
+		display:flex;
+		padding:.5em;
+		margin:0;
+	}
+
+	.list-header{
+		background: silver;
+	}
+	.list-content{
+		flex:1;
+	}
+}

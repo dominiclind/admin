@@ -2,20 +2,21 @@
 
 }
 
-.table-list-header{
+.table-list__header{
 	background: #F1F3F5;
 	display:flex;
 	padding:0 1em;
 	font-size:0.8em;
 
-	.header-item{
+	&__col{
 		flex:1;
 		text-transform: uppercase;
 	}
 }
 
 .table-list__item{
-	.content{
+
+	&__content{
 		display:flex;
 		text-decoration: none;
 		border-bottom:1px solid #F1F3F5;
@@ -26,7 +27,7 @@
 			background: #F1F3F5;
 		}
 
-		.content-item,{
+		&__col,{
 			flex:1;
 		}
 	}

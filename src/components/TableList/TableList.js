@@ -9,8 +9,8 @@ export default class TableList extends Component {
 
 		return (
 			<div className="table-list">
-				<div className="table-list-header">
-					{ui.map(prop => <p className="header-item">{prop}</p>)}
+				<div className="table-list__header">
+					{ui.map(prop => <p className="table-list__header__col">{prop}</p>)}
 				</div>
 				{data.map(item => {			
 					return (

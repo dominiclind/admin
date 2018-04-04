@@ -30,14 +30,14 @@ const SortableItem = SortableElement(({index, onRemove, item, ui}) => {
   return (
     <div className="reference-list-item">
       <DragHandle />
-
-      <div className="list-header">
-        {ui.map(prop => <p className="header-item">{prop}</p>)}
+      <div className="content">
+        <div className="list-header">
+          {ui.map(prop => <p className="col">{prop}</p>)}
+        </div>
+        <div className="list-content">
+          {ui.map(prop => <p className="col">{item[prop]}</p>)}
+        </div>
       </div>
-      <div className="list-content">
-        {ui.map(prop => <p className="header-item">{item[prop]}</p>)}
-      </div>
-
       <button onClick={onRemove}>Remove{index}</button>
     </div>
   );
@@ -151,7 +151,7 @@ class Reference extends React.Component {
     const items = input.value || [];
 
     return !this.state.loaded ? <p>loading</p> : (
-      <div>
+      <div className="reference-field">
         <Async
           single
           loadOptions={(input) => this.getCollections(input)}

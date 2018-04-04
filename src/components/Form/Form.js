@@ -10,6 +10,8 @@ import Tags from './Fields/Tags';
 import Reference from './Fields/Reference';
 import FieldGroup from './Fields/Group';
 
+import './form.scss';
+
 const renderField = ({fields,field, repeaterName = false, index}) => {
 	let fieldName = repeaterName ? `${repeaterName}.${field.name}`: field.name;
 	

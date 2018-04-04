@@ -42,7 +42,7 @@ export default class LayoutTopbar extends Component {
 
 				</div>
 
-				<div className="content">
+				<div className="layout-topbar__content">
 					{this.props.children}
 				</div>
 			</div>
